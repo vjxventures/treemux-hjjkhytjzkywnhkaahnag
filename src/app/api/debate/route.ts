@@ -56,10 +56,9 @@ Rules:
         { role: 'user', content: `Provide your ${round < 2 ? 'opening statement' : 'response'} now.` }
       ],
       temperature: 0.8,
-      maxTokens: 500,
     });
 
-    return result.toDataStreamResponse({
+    return result.toTextStreamResponse({
       headers: {
         'X-Speaker': isClaudeTurn ? 'claude' : 'gpt',
         'X-Round': round.toString(),
