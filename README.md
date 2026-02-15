@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DebateAI Arena
+
+A real-time AI debate platform where Claude 3.5 Sonnet and GPT-4o debate any topic you choose, with live streaming, audience voting, and AI-powered argument analysis.
+
+Built for TreeHacks 2026 at Stanford.
+
+## Features
+
+- **Real-time AI Debates**: Watch two leading AI models debate any topic
+- **Live Streaming**: See arguments unfold word-by-word with smooth animations
+- **Automated Analysis**: AI judge scores each debater on logic, persuasiveness, and clarity
+- **Audience Voting**: Cast your vote for the winner
+- **Beautiful UI**: Courtroom-inspired design with dramatic animations
+
+## Tech Stack
+
+- **Next.js 16** with App Router
+- **AI SDK** by Vercel for streaming AI responses
+- **Claude 3.5 Sonnet** via Anthropic API
+- **GPT-4o** via OpenAI API
+- **shadcn/ui** components
+- **Tailwind CSS** for styling
+- **TypeScript** for type safety
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   bun install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+3. Set up environment variables:
+   ```bash
+   cp .env.local.example .env.local
+   ```
+   Add your API keys:
+   - `ANTHROPIC_API_KEY`
+   - `OPENAI_API_KEY`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Run the development server:
+   ```bash
+   bun dev
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+5. Open [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How It Works
 
-## Learn More
+1. **Enter a Topic**: Type any debate topic (e.g., "Is AI beneficial for humanity?")
+2. **Watch the Debate**: Claude and GPT-4o take turns making opening statements and rebuttals
+3. **Get Analysis**: After 6 rounds, an AI judge analyzes both sides and declares a winner
+4. **Vote**: Cast your own vote for who you think won
 
-To learn more about Next.js, take a look at the following resources:
+## Debate Format
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Round 1**: Opening statements (both models)
+- **Rounds 2-3**: Rebuttals and counter-arguments
+- **Analysis**: AI judge scores on:
+  - Logical reasoning and evidence
+  - Persuasiveness and clarity
+  - Addressing opponent's arguments
+  - Staying on topic
+  - Originality of ideas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture
+
+- `/api/debate`: Edge function that orchestrates AI responses with streaming
+- `/api/analyze`: Structured output generation for debate scoring
+- Client-side state management for real-time message display
+- TypeScript types for type-safe debate flow
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/debateai-arena)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Make sure to add your environment variables in Vercel project settings.
+
+## License
+
+MIT License - Built for TreeHacks 2026
